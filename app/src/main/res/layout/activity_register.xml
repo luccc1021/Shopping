@@ -37,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <EditText
+            android:id="@+id/user_name"
             android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/ic_edit_username"
             android:hint="@string/please_name"
@@ -53,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <EditText
+            android:id="@+id/user_pass"
             android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/ic_edit_password"
             android:hint="@string/please_pass"
