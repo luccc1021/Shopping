@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/lnear_login"
+            android:background="#DD3000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/mine_head"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_default_user_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="点击登陆"
+                android:layout_marginTop="50dp"
+                android:paddingBottom="20dp"
+                android:paddingTop="15dp"
+                android:layout_below="@id/mine_head"
+                android:textColor="@color/colorWhite"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:background="#C02A00"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:drawableTop="@drawable/ic_collection_goods"
+                    android:text="商品收藏"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorWhite"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:drawableTop="@drawable/ic_collection_store"
+                    android:text="店铺收藏"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorWhite"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <RadioButton
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:drawableTop="@drawable/ic_user_footprint"
+                    android:text="我的足迹"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorWhite" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <include layout="@layout/mine_all"/>
+        <include layout="@layout/mine_money"/>
+
+        <LinearLayout
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/ic_user_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_weight="1"
+                android:text="收货地址"
+                android:textColor="@color/colorBlack"
+                android:paddingLeft="8dp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <ImageView
+                android:src="@drawable/ic_action_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/ic_user_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_weight="1"
+                android:text="系统设置"
+                android:textColor="@color/colorBlack"
+                android:paddingLeft="8dp"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <ImageView
+                android:src="@drawable/ic_action_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

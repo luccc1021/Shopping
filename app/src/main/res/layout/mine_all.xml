@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/ic_user_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_weight="1"
+            android:text="全部订单"
+            android:textColor="@color/colorBlack"
+            android:paddingLeft="8dp"
+            android:gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:src="@drawable/ic_action_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:paddingTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:button="@null"
+            android:drawableTop="@drawable/ic_user_order_wait_pay"
+            android:text="未付款"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:button="@null"
+            android:drawableTop="@drawable/ic_user_order_wait_drive"
+            android:text="未付款"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:button="@null"
+            android:drawableTop="@drawable/ic_user_order_wait_receipt"
+            android:text="未付款"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:button="@null"
+            android:drawableTop="@drawable/ic_user_order_wait_comment"
+            android:text="未付款"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:button="@null"
+            android:drawableTop="@drawable/ic_user_order_wait_refund"
+            android:text="未付款"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+    <TextView
+        android:background="#FAFAFA"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+</LinearLayout>

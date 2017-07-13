@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="#FF5001"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/register_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_action_back" />
+
+        <TextView
+            android:text="@string/user_register"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:id="@+id/please_name"
+            android:layout_marginLeft="8dp"
+            android:drawableLeft="@drawable/ic_edit_username"
+            android:hint="@string/please_name"
+            android:textSize="13sp"
+            android:drawablePadding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:id="@+id/please_pass"
+            android:layout_marginLeft="8dp"
+            android:drawableLeft="@drawable/ic_edit_password"
+            android:hint="@string/please_pass"
+            android:textSize="13sp"
+            android:drawablePadding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:id="@+id/please_pass_again"
+            android:layout_marginLeft="8dp"
+            android:drawableLeft="@drawable/ic_edit_username"
+            android:hint="@string/please_pass_again"
+            android:textSize="13sp"
+            android:drawablePadding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:id="@+id/please_email"
+            android:layout_marginLeft="8dp"
+            android:drawableLeft="@drawable/ic_edit_email"
+            android:hint="@string/please_email"
+            android:textSize="13sp"
+            android:drawablePadding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/sign_in"
+        android:text="@string/register"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#FF5001"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+</LinearLayout>
