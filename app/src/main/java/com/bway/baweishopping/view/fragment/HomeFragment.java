@@ -17,6 +17,11 @@ import com.bway.baweishopping.R;
 public class HomeFragment extends BaseFragment{
 
     @Override
+    void initData() {
+
+    }
+
+    @Override
     void initView(View view) {
 
     }
