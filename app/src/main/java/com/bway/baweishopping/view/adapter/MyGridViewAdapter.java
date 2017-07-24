@@ -1,12 +1,14 @@
 package com.bway.baweishopping.view.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.bway.baweishopping.R;
+import com.bway.baweishopping.view.activity.ShoppingListActivity;
 
 import java.util.List;
 
@@ -44,12 +46,29 @@ public class MyGridViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        final ViewHolder viewHolder;
         if (null == convertView) {
+            viewHolder = new ViewHolder();
             convertView = View.inflate(mContext, R.layout.gridview_item, null);
+            viewHolder.textView = (TextView) convertView.findViewById(R.id.tv_gridview);
+            convertView.setTag(viewHolder);
+        }else{
+            viewHolder = (ViewHolder) convertView.getTag();
         }
-        TextView tvGridView = (TextView) convertView.findViewById(R.id.tv_gridview);
-        tvGridView.setText(itemGridList.get(position));
+        viewHolder.textView.setText(itemGridList.get(position));
+        viewHolder.textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, ShoppingListActivity.class);
+                intent.putExtra("xinxi",itemGridList.get(position));
+                mContext.startActivity(intent);
+            }
+        });
         return convertView;
+    }
+
+    class ViewHolder{
+        TextView textView;
     }
 }

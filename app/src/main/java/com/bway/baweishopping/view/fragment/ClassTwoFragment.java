@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bway.baweishopping.R;
-import com.bway.baweishopping.modle.bean.ChildData;
 import com.bway.baweishopping.modle.bean.ClassTwoData;
 import com.bway.baweishopping.presenter.MainPresenter;
 import com.bway.baweishopping.view.IView.IClassView;
@@ -21,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static android.R.attr.key;
 import static android.R.id.list;
 import static com.bway.baweishopping.R.layout.item;
 
@@ -44,24 +44,26 @@ public class ClassTwoFragment extends BaseFragment implements IClassView<ClassTw
     private MyExpandableListViewAdapter adapter;
     private String child;
     private String url;
+    private ArrayList<String> id2;
 
     @Override
     void initData() {
         mainPresenter = new MainPresenter();
         mainPresenter.attachView(this);
-
+        expandableListView .setGroupIndicator(null);
 
         Bundle bundle = getArguments();
         key1 = bundle.getInt("key1");
         key0 = bundle.getStringArrayList("key0");
         key00 = bundle.getStringArrayList("key00");
+        id2 = bundle.getStringArrayList("id2");
         String[] split = key0.get(key1).split("/");
 
         for (int i = 0; i < split.length; i++) {
             mList.add(split[i]);
         }
-        for (int i = 0; i < mList.size(); i++) {
-            url = "http://169.254.65.152/mobile/index.php?act=goods_class&gc_id="+key1+"&gc_id="+key00.get(i);
+        for (int i = 0; i < key00.size(); i++) {
+            url = "http://169.254.65.152/mobile/index.php?act=goods_class&gc_id="+id2.get(key1)+"&gc_id="+key00.get(i);
             childList.add(url);
             Log.e("========", "onGroupClick: "+ url );
             mainPresenter.loadDataFromServer(url,ClassTwoData.class,0);
@@ -91,27 +93,18 @@ public class ClassTwoFragment extends BaseFragment implements IClassView<ClassTw
         mChild2 = new ArrayList<>();
         List<ClassTwoData.DatasBean.ClassListBean> class_list = classTwoData.getDatas().getClass_list();
         mChild.addAll(class_list);
+//        for (int i = 0; i < mChild.size()-1; i++) {
+//            Log.e("222222", "isSuccess: " + mChild.get(i).getGc_name());
+//        }
         for (int j = 0; j < mChild.size(); j++) {
             String gc_name = mChild.get(j).getGc_name();
             mChild2.add(gc_name);
         }
-//        for (int i = 0; i < childList.size(); i++) {
-//
-//        }
-        itemList.add(mChild2);
 
+        itemList.add(mChild2);
+//
         adapter = new MyExpandableListViewAdapter(getContext(), mList, itemList);
         expandableListView.setAdapter(adapter);
-
-//        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-//            @Override
-//            public boolean onGroupClick(Expandabl                                                                                                                                     eListView expandableListView, View view, int i, long l) {
-//
-//                adapter.notifyDataSetChanged();
-//                return false;
-//            }
-//        });
-
     }
 
     @Override

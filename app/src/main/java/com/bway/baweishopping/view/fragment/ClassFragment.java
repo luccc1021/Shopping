@@ -35,11 +35,13 @@ public class ClassFragment extends BaseFragment implements IClassView<ClassData>
     private MainPresenter mainPresenter;
     private List<ClassData.DatasBean.ClassListBean> mList;
     private List<ClassData.DatasBean.ClassListBean> mList2;
+    private List<ClassData.DatasBean.ClassListBean> mList3;
     private ListView mListview;
     private ClassLeftAdapter adapter;
     private ClassTwoFragment twoFragment;
-    private ArrayList<String> arrayList = new ArrayList<>();
-    private ArrayList<String> arrayList2 = new ArrayList<>();
+    private ArrayList<String> arrayList ;
+    private ArrayList<String> arrayList3 ;
+    private ArrayList<String> arrayList2 ;
     private FragmentManager fm;
     int sss;
     private String url2 = "http://169.254.65.152/mobile/index.php?act=goods_class&gc_id=";
@@ -60,7 +62,8 @@ public class ClassFragment extends BaseFragment implements IClassView<ClassData>
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 sss = i;
-                mainPresenter.loadDataFromServer(url2 + i, ClassData.class, 1);
+                mainPresenter.loadDataFromServer(url2 + arrayList3.get(i), ClassData.class, 1);
+
             }
         });
     }
@@ -70,6 +73,7 @@ public class ClassFragment extends BaseFragment implements IClassView<ClassData>
         mListview = view.findViewById(R.id.list_class);
         mList = new ArrayList<>();
         mList2 = new ArrayList<>();
+        mList3 = new ArrayList<>();
         fragments = new ArrayList<>();
     }
 
@@ -81,18 +85,22 @@ public class ClassFragment extends BaseFragment implements IClassView<ClassData>
     @Override
     public void isSuccess(ClassData classData, int id) {
         if (id == 0) {
-            Log.e("--------", "isSuccess: " + classData.getCode());
+            arrayList = new ArrayList<>();
+            arrayList3 = new ArrayList<>();
+
             List<ClassData.DatasBean.ClassListBean> class_list = classData.getDatas().getClass_list();
             mList.addAll(class_list);
             for (int i = 0; i < mList.size(); i++) {
                 arrayList.add(mList.get(i).getText());
+                arrayList3.add(mList.get(i).getGc_id());
                 twoFragment = new ClassTwoFragment();
                 fragments.add(twoFragment);
             }
         }
         if (id == 1) {
-            Log.e("--------", "isSuccess: " + classData.getCode()+sss);
             mList2.clear();
+            arrayList2 = new ArrayList<>();
+//            arrayList3 = new ArrayList<>();
             List<ClassData.DatasBean.ClassListBean> class_list = classData.getDatas().getClass_list();
             mList2.addAll(class_list);
             for (int i = 0; i < mList2.size(); i++) {
@@ -100,6 +108,7 @@ public class ClassFragment extends BaseFragment implements IClassView<ClassData>
                 Log.e("---", "isSuccess: "+ mList2.get(i).getGc_id());
             }
             bundle.putStringArrayList("key0", arrayList);
+            bundle.putStringArrayList("id2", arrayList3);
             bundle.putInt("key1", sss);
             fragments.get(sss).setArguments(bundle);
             bundle.putStringArrayList("key00", arrayList2);
